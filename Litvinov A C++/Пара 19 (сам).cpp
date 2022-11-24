@@ -1,4 +1,4 @@
-﻿#include <ctime>
+#include <ctime>
 #include <fstream>
 #include <string>
 #include <iostream>
@@ -82,7 +82,15 @@ public:
 	}
 	void Show() override
 	{
-		cout << "Фигура является окружностью c радиусом " << radius << endl;
+		if (radius <= 0)
+		{
+			cout << "Вы ввели не коректные данные!" << "\n"
+				<< "Окружность c радиусом " << radius << " не существует!" << endl;
+		}
+		else
+		{
+			cout << "Фигура является окружностью c радиусом " << radius << endl;
+		}
 	}
 
 };
@@ -134,7 +142,8 @@ int main()
 {
 	setlocale(LC_ALL, "rus");
 
-	//Прямоугольник/**/
+	//Прямоугольник
+	/**/
 	cout << "================================================ПРЯМОУГОЛЬНИК" << endl;
 	Rectangle r(-120, 10);
 	r.Show();
@@ -147,20 +156,24 @@ int main()
 	cout << "Площадь = " << r2.Square() << "\t" << "Периметр = " << r2.Perimetr() << endl;
 	//Окружность
 	cout << "================================================ОКРУЖНОСТЬ" << endl;
-	Circle z(3);
+	Circle z(0);
 	z.Show();
 	cout << "Площадь = " << z.Square() << "\t" << "Периметр = " << z.Perimetr() << endl;
-	Circle z1;
+	Circle z1(3);
 	z1.Show();
 	cout << "Площадь = " << z1.Square() << "\t" << "Периметр = " << z1.Perimetr() << endl;
+	Circle z2;
+	z2.Show();
+	cout << "Площадь = " << z2.Square() << "\t" << "Периметр = " << z2.Perimetr() << endl;
 	//Треугольник
 	cout << "================================================ТРЕУГОЛЬНИК" << endl;
-	Triangle t (5,6,7);
+	Triangle t;
 	t.Show();
 	cout << "Площадь = " << t.Square() << "\t" << "Периметр = " << t.Perimetr() << endl;
-	Triangle t1;
+	Triangle t1 (5,6,7);
 	t1.Show();
 	cout << "Площадь = " << t1.Square() << "\t" << "Периметр = " << t1.Perimetr() << endl;
+	
 
 	return -1;
 }
