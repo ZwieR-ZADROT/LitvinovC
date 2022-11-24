@@ -1,18 +1,18 @@
-#include <ctime>
+﻿#include <ctime>
 #include <fstream>
 #include <string>
 #include <iostream>
 
 using namespace std;
 //Roditely
-class Figure 
+class Figure
 {
 	virtual double Square() = 0;
 	virtual double Perimetr() = 0;
 	virtual void Show() = 0;
 };
 //Прямоугольник
-class Rectangle : Figure 
+class Rectangle : Figure
 {
 private:
 	int width;
@@ -56,7 +56,7 @@ public:
 
 };
 //Окружность
-class Circle : Figure 
+class Circle : Figure
 {
 private:
 	int radius;
@@ -74,7 +74,7 @@ public:
 	}
 	double Square() override
 	{
-		return PI * pow(radius,2);
+		return PI * pow(radius, 2);
 	}
 	double Perimetr() override
 	{
@@ -95,7 +95,7 @@ public:
 
 };
 //Треугольник
-class Triangle : Figure 
+class Triangle : Figure
 {
 private:
 	int side_A;
@@ -116,12 +116,12 @@ public:
 	}
 	double Square() override
 	{
-		
-		return sqrt((Perimetr() * (Perimetr() - side_A) * (Perimetr() - side_B) * (Perimetr() - side_C)));
+		int p = (side_A + side_B + side_C) / 2;
+		return sqrt((p * (p - side_A) * (p - side_B) * (p - side_C)));
 	}
 	double Perimetr() override
 	{
-		return (side_A + side_B + side_C) / 2;
+		return (side_A + side_B + side_C);
 	}
 	void Show() override
 	{
@@ -170,10 +170,10 @@ int main()
 	Triangle t;
 	t.Show();
 	cout << "Площадь = " << t.Square() << "\t" << "Периметр = " << t.Perimetr() << endl;
-	Triangle t1 (5,6,7);
+	Triangle t1(5, 6, 7);
 	t1.Show();
 	cout << "Площадь = " << t1.Square() << "\t" << "Периметр = " << t1.Perimetr() << endl;
-	
+
 
 	return -1;
 }
