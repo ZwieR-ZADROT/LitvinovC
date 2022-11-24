@@ -20,8 +20,8 @@ private:
 public:
 	Rectangle()
 	{
-		width = 10;
-		heigth = 10;
+		this->width = 10;
+		this->heigth = 10;
 	}
 	Rectangle(int w, int h)
 	{
@@ -37,20 +37,24 @@ public:
 
 	double Square() override
 	{
-		If()
-	}
-	double Perimetr() override{return 10;}
+		return width * heigth;
+	};
+	double Perimetr() override
+	{
+		return (width * heigth) * 2;
+	};
+
 	void Show() override
 	{
 		if (width == 0 && heigth == 0)
 		{
-			cout << "Вы ввели не коректные данные!"
-				"Фигура не является прямоугольником!" << endl;
+			cout << "Вы ввели не коректные данные!" << "\n"
+				<< "Фигура не является прямоугольником!" << endl;
 		}
 		else
 		{
 			cout << "Фигура является прямоугольником со старанами " << width
-				<< "на" << heigth << endl;
+				<< " на " << heigth << endl;
 		}
 	}
 };
@@ -70,12 +74,16 @@ int main()
 {
 	setlocale(LC_ALL, "rus");
 
-	Rectangle r(-120,10);
+	
+	Rectangle r(-120, 10);
 	r.Show();
-	/*Rectangle r1;
+	cout << "Площадь = " << r.Square() << "\t" << "Периметр = " << r.Perimetr() << endl;
+	Rectangle r1;
 	r1.Show();
+	cout << "Площадь = " << r1.Square() << "\t" << "Периметр = " << r1.Perimetr() << endl;
 	Rectangle r2(12,10);
-	r2.Show();*/
-		
+	r2.Show();
+	cout << "Площадь = " << r2.Square() << "\t" << "Периметр = " << r2.Perimetr() << endl;
+	
 	return -1;
 }
